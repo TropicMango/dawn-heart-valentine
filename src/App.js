@@ -22,8 +22,8 @@ const createDeck = () => {
       });
     }
   });
-  return deck;
-  // return deck.sort(() => Math.random() - 0.5);
+  // return deck;
+  return deck.sort(() => Math.random() - 0.5);
 };
 
 function App() {
