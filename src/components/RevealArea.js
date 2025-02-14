@@ -15,7 +15,7 @@ const RevealArea = ({ revealedWords }) => {
           setFinalWords(["I", "Fucking", "Love", "You"]); // Swap the order
           // setShowTransition(false); // Fade back in
           setSwapped(true); // Prevent further swaps
-        }, 1000); // 1-second delay before swapping
+        }, 5000); // 1-second delay before swapping
       } else {
         setFinalWords(["I", "Fucking", "Love", "You"]); // Swap the order
       }
