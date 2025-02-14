@@ -4,7 +4,7 @@ import Board from "./components/Board";
 import RevealArea from "./components/RevealArea";
 
 // Define the four words (each corresponds to a card type)
-const cardTypes = ["🜁", "🜂", "🜃", "🜄"]; // Symbols instead of words
+const cardTypes = ["🍌", "🥭", "🍓", "🍒"]; // Symbols instead of words
 const revealedMessage = ["I", "Love", "You", "Fucking"]; // The words to be revealed
 
 const cardsPerType = 4; // 4 cards per type
