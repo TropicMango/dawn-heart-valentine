@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dawn-heart-valentine/static/css/main.90526e69.css",
-    "main.js": "/dawn-heart-valentine/static/js/main.0029610f.js",
+    "main.css": "/dawn-heart-valentine/static/css/main.ff117ce0.css",
+    "main.js": "/dawn-heart-valentine/static/js/main.0ed998fb.js",
     "static/js/488.6ab56a32.chunk.js": "/dawn-heart-valentine/static/js/488.6ab56a32.chunk.js",
     "index.html": "/dawn-heart-valentine/index.html",
-    "main.90526e69.css.map": "/dawn-heart-valentine/static/css/main.90526e69.css.map",
-    "main.0029610f.js.map": "/dawn-heart-valentine/static/js/main.0029610f.js.map",
+    "main.ff117ce0.css.map": "/dawn-heart-valentine/static/css/main.ff117ce0.css.map",
+    "main.0ed998fb.js.map": "/dawn-heart-valentine/static/js/main.0ed998fb.js.map",
     "488.6ab56a32.chunk.js.map": "/dawn-heart-valentine/static/js/488.6ab56a32.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90526e69.css",
-    "static/js/main.0029610f.js"
+    "static/css/main.ff117ce0.css",
+    "static/js/main.0ed998fb.js"
   ]
 }
