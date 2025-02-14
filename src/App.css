@@ -1,38 +1,50 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffeef8;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.game {
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 130px); /* Increase to match wrapper size */
+  grid-gap: 5px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 15px;
+  overflow: visible
+  /* Optionally, set overflow: visible if needed on the board as well */
+}
+
+.card {
+  width: 140px;
+  height: 95px;
+  background-color: #d6336c;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  user-select: none;
+  transition: transform 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.card:hover {
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reveal-area {
+  margin-top: 20px;
+}
+
+.revealed-words {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
 }
