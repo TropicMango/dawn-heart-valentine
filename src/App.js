@@ -4,7 +4,9 @@ import Board from "./components/Board";
 import RevealArea from "./components/RevealArea";
 
 // Define the four words (each corresponds to a card type)
-const cardTypes = ["I", "Freaking", "Love", "You"];
+const cardTypes = ["🜁", "🜂", "🜃", "🜄"]; // Symbols instead of words
+const revealedMessage = ["I", "Love", "You", "Fucking"]; // The words to be revealed
+
 const cardsPerType = 4; // 4 cards per type
 
 // Helper function to create and shuffle the deck
@@ -20,7 +22,8 @@ const createDeck = () => {
       });
     }
   });
-  return deck.sort(() => Math.random() - 0.5);
+  return deck;
+  // return deck.sort(() => Math.random() - 0.5);
 };
 
 function App() {
@@ -51,31 +54,43 @@ function App() {
   useEffect(() => {
     const flippedUnmatched = deck.filter(card => card.isFlipped && !card.isMatched);
     if (flippedUnmatched.length === 4) {
-      // Check if all 4 flipped cards are of the same type
       const firstType = flippedUnmatched[0].type;
       const allSame = flippedUnmatched.every(card => card.type === firstType);
-
+  
       if (allSame) {
         // Mark all these cards as matched
         const updatedDeck = deck.map(card =>
           card.type === firstType ? { ...card, isMatched: true } : card
         );
         setDeck(updatedDeck);
-        // Reveal the corresponding word if not already revealed
-        if (!revealedWords.includes(firstType)) {
-          setRevealedWords(prev => [...prev, firstType]);
+  
+        // Reveal the next word in sequence
+        if (revealedWords.length < revealedMessage.length) {
+          setRevealedWords(prev => {
+            const newReveals = [...prev, revealedMessage[prev.length]]; // Reveal the next word
+        
+            // If "Fucking" is revealed, insert it correctly
+            if (newReveals.includes("Fucking")) {
+              let orderedReveals = newReveals.filter(word => word !== "Fucking"); // Remove "Fucking"
+              const loveIndex = orderedReveals.indexOf("Love");
+              orderedReveals.splice(loveIndex + 1, 0, "Fucking"); // Insert after "Love"
+              return orderedReveals;
+            }
+        
+            return newReveals;
+          });
         }
       } else {
-        // Not a match: reset (flip back) the 4 unmatched flipped cards after a delay
+        // Not a match: reset flipped cards
         setTimeout(() => {
           const resetDeck = deck.map(card =>
             card.isFlipped && !card.isMatched ? { ...card, isFlipped: false } : card
           );
           setDeck(resetDeck);
-        }, 1000); // 1 second delay
+        }, 1000);
       }
     }
-  }, [deck, revealedWords]);
+  }, [deck, revealedWords]);  
 
   return (
     <div className="game">
